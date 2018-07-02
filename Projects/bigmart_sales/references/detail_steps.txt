@@ -1,0 +1,48 @@
+1.checking which columns contain missing values.
+2.some basic statistics for numerical variables.
+3.Some observations(3):
+1.item visibility is 0
+2.mising values in Item_Outlet_Sales and Item_Weight
+3.Outlet_Establishment_Year can be converted to year of establishment
+
+4.Moving to nominal (categorical) variable, lets have a look at the number of unique values in each of them.
+5.explore further using the frequency of different categories in each nominal variable. I’ll exclude the ID and source variables for obvious reasons.
+6.output gives us following 3 observations:
+1.Category for variable Item_Fat_Content LF low fat etc. which can be commbined
+2.Item_Type: Not all categories have substantial numbers. It looks like combining them can give better results.
+
+3. Data Cleaning
+Imputing Missing Values
+
+two variables with missing values – Item_Weight and Outlet_Size. 
+
+1.impute the former by the average weight of the particular item.
+
+2.impute Outlet_Size with the mode of the Outlet_Size for the particular type of outlet.
+
+4. Feature Engineering
+
+1: Consider combining Outlet_Type
+
+During exploration, we decided to consider combining the Supermarket Type2 and Type3 variables. But is that a good idea? A quick way to check that could be to analyze the mean sales by type of store. If they have similar sales, then keeping them separate won’t help much.
+
+ 2: Modify Item_Visibility
+
+We noticed that the minimum value here is 0, which makes no practical sense. Lets consider it like missing information and impute it with mean visibility of that product.
+
+with comparing products on absolute terms, we should look at the visibility of the product in that particular store as compared to the mean visibility of that product across all stores. This will give some idea about how much importance was given to that product in a store as compared to other stores. We can use the ‘visibility_avg’ variable made above to achieve this.
+
+3: Create a broad category of Type of Item
+Earlier we saw that the Item_Type variable has 16 categories which might prove to be very useful in analysis. So its a good idea to combine them. One way could be to manually assign a new category to each. But there’s a catch here. If you look at the Item_Identifier, i.e. the unique ID of each item, it starts with either FD, DR or NC. If you see the categories, these look like being Food, Drinks and Non-Consumables. So I’ve used the Item_Identifier variable to create a new column:
+
+4: Determine the years of operation of a store
+
+We wanted to make a new column depicting the years of operation of a store
+
+5: Modify categories of Item_Fat_Content
+
+We found typos and difference in representation in categories of Item_Fat_Content variable. This can be corrected as:
+
+6: Numerical and One-Hot Coding of Categorical variables
+
+Since scikit-learn accepts only numerical variables, I converted all categories of nominal variables into numeric types. Also, I wanted Outlet_Identifier as a variable as well. So I created a new variable ‘Outlet’ same as Outlet_Identifier and coded that. Outlet_Identifier should remain as it is, because it will be required in the submission file.

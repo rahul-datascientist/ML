@@ -1,0 +1,19 @@
+data=pd_readcsv()
+##checking which columns contain missing values
+data.apply(lambda x:sum(x.isnull()))
+
+##number of unique values in each of nominal (categorical) variable
+data.apply(lambda x:len(x.unique()))
+
+
+## to find most common text value
+You can use value_counts() to get a count series, and get the first row:
+
+import pandas as pd
+
+source = pd.DataFrame({'Country' : ['USA', 'USA', 'Russia','USA'], 
+                  'City' : ['New-York', 'New-York', 'Sankt-Petersburg', 'New-York'],
+                  'Short name' : ['NY','New','Spb','NY']})
+
+source.groupby(['Country','City']).agg(lambda x:x.value_counts().index[0])
+

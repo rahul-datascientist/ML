@@ -1,0 +1,2 @@
+http://mlkernels.readthedocs.io/en/latest/kernels.html
+https://data-flair.training/blogs/svm-kernel-functions/
