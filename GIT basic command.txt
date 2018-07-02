@@ -1,0 +1,6 @@
+echo "# ML" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add ML https://github.com/rahul-datascientist/ML.git
+git push -u ML master
