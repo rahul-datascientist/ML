@@ -1,0 +1,10 @@
+Missing value - Histogram and box plot
+
+df.Age.plot(kind='hist', bins=20, color='c');
+
+df[df.Age.notnull()].boxplot('Age','Sex');
+
+
+pairplot
+
+sns.pairplot(iris,hue='species')
