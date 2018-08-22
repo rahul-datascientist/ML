@@ -10,6 +10,8 @@ from sklearn.model_selection import KFold ## Creating cross validation sets
 from sklearn import metrics ## For loss functions
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.model_selection import GridSearchCV
+
 
 ## Libraries for Classification algorithms
 from sklearn.linear_model import LogisticRegression
@@ -346,7 +348,43 @@ def runSVC1(train_X, train_y, test_X, test_y=None, test_X2=None, C=1.0,
     
     test_loss = 0
     
-    #train_loss = metrics.accuracy_score(train_preds,train_y.values.ravel())
-    #test_loss = metrics.accuracy_score(test_preds,test_y.values.ravel())
-    #print("Train and Test loss : ", train_loss, test_loss)
+    train_loss = metrics.accuracy_score(train_preds,train_y.values.ravel())
+    test_loss = metrics.accuracy_score(test_preds,test_y.values.ravel())
+    print("Train and Test loss : ", train_loss, test_loss)
+    #print('accuracy : {0:.2f}'.format(metrics.accuracy_score(train_preds,train_y.values.ravel())))
+    #print('confusion matrix :\n {0}'.format(metrics.confusion_matrix(train_preds, train_y.values.ravel())))
+    #print('precision :{0:.2f}'.format(metrics.precision_score(train_preds, train_y.values.ravel())))
+    #print('recall :{0:.2f}'.format(metrics.recall_score(train_preds, train_y.values.ravel())))
+    return test_preds, test_loss, test_preds2, model
+	
+### Running SVM
+def runSVC2(train_X, train_y, test_X, test_y=None, test_X2=None, C=1.0, 
+           kernel_choice = 'rbf',grid_search='N'):
+    model = SVC(
+                C=C, 
+                kernel=kernel_choice, 
+                probability=True)
+    model.fit(train_X, train_y)
+    train_preds = model.predict(train_X)
+    test_preds = model.predict(test_X)
+
+    test_preds2 = 0
+    if test_X2 is not None:
+        test_preds2 = model.predict(test_X2)
+    
+    test_loss = 0
+    
+    train_loss = metrics.accuracy_score(train_preds,train_y.values.ravel())
+    test_loss = metrics.accuracy_score(test_preds,test_y.values.ravel())
+    print("Train and Test loss : ", train_loss, test_loss)
+    if grid_search == 'Y':
+        parameters = {'C':[1.0, 10.0,20.0, 50.0, 100.0, 1000.0], 'kernel' : ['linear', 'poly', 'rbf', 'sigmoid'],'gamma' :[0.1,.001,1.0,10.0,                       20.0, 50.0, 100.0, 1000.0]}
+        clf = GridSearchCV(model, param_grid=parameters, cv=10,n_jobs=3)
+        clf.fit(train_X, train_y.values.ravel())
+        print(clf.best_params_)
+        print(clf.best_score_)
+    #print('accuracy : {0:.2f}'.format(metrics.accuracy_score(train_preds,train_y.values.ravel())))
+    #print('confusion matrix :\n {0}'.format(metrics.confusion_matrix(train_preds, train_y.values.ravel())))
+    #print('precision :{0:.2f}'.format(metrics.precision_score(train_preds, train_y.values.ravel())))
+    #print('recall :{0:.2f}'.format(metrics.recall_score(train_preds, train_y.values.ravel())))
     return test_preds, test_loss, test_preds2, model
