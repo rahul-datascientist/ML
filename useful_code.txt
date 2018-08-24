@@ -17,3 +17,20 @@ source = pd.DataFrame({'Country' : ['USA', 'USA', 'Russia','USA'],
 
 source.groupby(['Country','City']).agg(lambda x:x.value_counts().index[0])
 
+
+to apply any function over an array
+
+Numpy provides np.vectorize helps Python functions to work on numpy arrays.
+
+def subtract(a,b):
+	if a>b:
+		return a-b
+	else:
+		return b-a
+
+
+import numpy as np
+vecfunc = np.vectorize(subtract) #Convert python function to vector function
+result=vecfunc([3,2,1],[4,8,2]) #Call vector function to work on numpy arrays
+print result
+
