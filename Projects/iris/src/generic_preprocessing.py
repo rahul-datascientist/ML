@@ -1,4 +1,8 @@
 ####### Pre-processing ############    
+## Importing required libraries
+import pandas as pd ## For DataFrame operation
+import numpy as np ## Numerical python for matrloc operations
+from sklearn.preprocessing import LabelEncoder
 
 def drop_allsame(df):
     '''
@@ -27,27 +31,27 @@ def treat_missing_numeric(df,columns,how = 'mean'):
     if how == 'mean':
         for i in columns:
             print("Filling missing values with mean for columns - {0}".format(i))
-            df.ix[:,i] = df.ix[:,i].fillna(df.ix[:,i].mean())
+            df.loc[:,i] = df.loc[:,i].fillna(df.loc[:,i].mean()[0])
             
     elif how == 'mode':
         for i in columns:
             print("Filling missing values with mode for columns - {0}".format(i))
-            df.ix[:,i] = df.ix[:,i].fillna(df.ix[:,i].mode())
+            df.loc[:,i] = df.loc[:,i].fillna(df.loc[:,i].mode()[0],inplace=True)
     
     elif how == 'median':
         for i in columns:
             print("Filling missing values with median for columns - {0}".format(i))
-            df.ix[:,i] = df.ix[:,i].fillna(df.ix[:,i].median())
+            df.loc[:,i] = df.loc[:,i].fillna(df.loc[:,i].median()[0])
     
     elif how == 'ffill':
         for i in columns:
             print("Filling missing values with forward fill for columns - {0}".format(i))
-            df.ix[:,i] = df.ix[:,i].fillna(method ='ffill')
+            df.loc[:,i] = df.loc[:,i].fillna(method ='ffill')
     
     elif type(how) == int or type(how) == float:
         for i in columns:
             print("Filling missing values with {0} for columns - {1}".format(how,i))
-            df.ix[:,i] = df.ix[:,i].fillna(how)
+            df.loc[:,i] = df.loc[:,i].fillna(how)
     else:
         print("Missing value fill cannot be completed")
     return df
@@ -65,15 +69,15 @@ def treat_missing_categorical(df,columns,how = 'mode'):
     if how == 'mode':
         for i in columns:
             print("Filling missing values with mode for columns - {0}".format(i))
-            df.ix[:,i] = df.ix[:,i].fillna(df.ix[:,i].mode()[0])
+            df.loc[:,i] = df.loc[:,i].fillna(df.loc[:,i].mode()[0])
     elif type(how) == str:
         for i in columns:
             print("Filling missing values with {0} for columns - {1}".format(how,i))
-            df.ix[:,i] = df.ix[:,i].fillna(how)
+            df.loc[:,i] = df.loc[:,i].fillna(how)
     elif type(how) == int or type(how) == float:
         for i in columns:
             print("Filling missing values with {0} for columns - {1}".format(how,i))
-            df.ix[:,i] = df.ix[:,i].fillna(str(how))
+            df.loc[:,i] = df.loc[:,i].fillna(str(how))
     else:
         print("Missing value fill cannot be completed")
     return df
@@ -140,7 +144,7 @@ def one_hot_encoder(df, columns):
     '''
     for each in columns:
         print("One-Hot encoding column - {0}".format(each))
-        dummies = pd.get_dummies(df[each], prefix=each, drop_first=False)
+        dummies = pd.get_dummies(df[each], prefloc=each, drop_first=False)
         df = pd.concat([df, dummies], axis=1)
     return df.drop(columns,axis = 1)
 
