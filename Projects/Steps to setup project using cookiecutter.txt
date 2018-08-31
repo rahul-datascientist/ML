@@ -1,0 +1,8 @@
+Step 1 install cookiecutter if not installed
+pip install cookiecutter
+
+Step 2 run below command on cmd prompt
+cookiecutter https://github.com/drivendata/cookiecutter-data-science
+
+
+Add project to GIT
