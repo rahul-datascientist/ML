@@ -4,3 +4,15 @@ git add README.md
 git commit -m "first commit"
 git remote add ML https://github.com/rahul-datascientist/ML.git
 git push -u ML master
+
+Discard all local changes, but save them for possible re-use later
+
+git stash
+
+Discarding local changes (permanently) to a file
+
+git checkout -- <file>
+
+Discard all local changes to all files permanently
+
+git reset --hard
