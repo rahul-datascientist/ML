@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html><head><title>joins.md – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 79 million projects."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!-- base href="https://codeburst.io/media/2012b63920c2eea8930230af0fe0cfe9?postId=149d341fc53e" --><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="2012b63920c2eea8930230af0fe0cfe9_data/84deed8bb0a958c8b27daa76815219cb.js" charset="utf-8"></script><link rel="stylesheet" href="70d0aa97e9f7c0d9964dfd3ac0f7ba1c_data/gist-embed-6ffd39a836c4ec67a18e51f5b1a6af4e.css"><div id="gist87732509" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-joins-md" class="file">
+    
+  <div id="readme" class="readme blob instapaper_body">
+    <article class="markdown-body entry-content" itemprop="text"><table>
+<thead>
+<tr>
+<th align="center">SQL</th>
+<th align="center">Pandas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">select airport_ident, type, description, 
+frequency_mhz from airport_freq join airports on 
+airport_freq.airport_ref = airports.id where airports.ident = 'KLAX'</td>
+<td align="center">airport_freq.merge(airports[airports.ident == 
+'KLAX'][['id']], left_on='airport_ref', right_on='id', 
+how='inner')[['airport_ident', 'type', 'description', 'frequency_mhz']]</td>
+</tr></tbody></table>
+</article>
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/j-bennet/84deed8bb0a958c8b27daa76815219cb/raw/6daee5053e958b59ec20b8313c15b6148799ffcb/joins.md" style="float:right">view raw</a>
+        <a href="https://gist.github.com/j-bennet/84deed8bb0a958c8b27daa76815219cb#file-joins-md">joins.md</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height) {height = height ? height : document.documentElement.offsetHeight; var resized = false; if (window.donkey && donkey.resize) {donkey.resize(height); resized = true;}if (parent && parent._resizeIframe) {var obj = {iframe: window.frameElement, height: height}; parent._resizeIframe(obj); resized = true;}if (window.location && window.location.hash === "#amp=1" && window.parent && window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", type: "embed-size", height: height}, "*");}if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.resize) {window.webkit.messageHandlers.resize.postMessage(height); resized = true;}return resized;}function maybeResize() {if (document.documentElement.offsetHeight != height && notifyResize()) {height = document.documentElement.offsetHeight;}delayMs = Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, delayMs);}maybeResize();</script></body></html>

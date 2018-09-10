@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html><head><title>store.py – Medium</title><meta name="description" content="GitHub is where people build software. More than 28 million people use GitHub to discover, fork, and contribute to over 79 million projects."><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="twitter:widgets:csp" content="on"><meta name="robots" content="noindex"><!-- base href="https://codeburst.io/media/55cfd2c51f1805856ef01293855a535e?postId=149d341fc53e" --><style>body {text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "ff-tisa-web-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-weight: 400; color: #333332; font-size: 18px; line-height: 1.4; margin: 0; background-color: white; overflow: hidden;}iframe {max-width: 100%;}</style></head><body><style>.gist .gist-file { margin-bottom: 0 !important; }.gist { text-rendering: auto; }</style><script src="55cfd2c51f1805856ef01293855a535e_data/0e4128fa90874301dd9e4125c95e3f84.js" charset="utf-8"></script><link rel="stylesheet" href="70d0aa97e9f7c0d9964dfd3ac0f7ba1c_data/gist-embed-6ffd39a836c4ec67a18e51f5b1a6af4e.css"><div id="gist87733267" class="gist">
+    <div class="gist-file">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-store-py" class="file">
+    
+
+  <div itemprop="text" class="blob-wrapper data type-python">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-store-py-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-store-py-LC1" class="blob-code blob-code-inner js-file-line">df.to_csv(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> csv file</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-store-py-LC2" class="blob-code blob-code-inner js-file-line">df.to_hdf(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> HDF5 file</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-store-py-LC3" class="blob-code blob-code-inner js-file-line">df.to_pickle(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> serialized object</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-store-py-LC4" class="blob-code blob-code-inner js-file-line">df.to_sql(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> to SQL database</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-store-py-LC5" class="blob-code blob-code-inner js-file-line">df.to_excel(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> to Excel sheet</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-store-py-LC6" class="blob-code blob-code-inner js-file-line">df.to_json(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> to JSON string</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-store-py-LC7" class="blob-code blob-code-inner js-file-line">df.to_html(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> render as HTML table</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-store-py-LC8" class="blob-code blob-code-inner js-file-line">df.to_feather(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> binary feather-format</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-store-py-LC9" class="blob-code blob-code-inner js-file-line">df.to_latex(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> tabular environment table</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-store-py-LC10" class="blob-code blob-code-inner js-file-line">df.to_stata(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> Stata binary data files</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-store-py-LC11" class="blob-code blob-code-inner js-file-line">df.to_msgpack(<span class="pl-c1">...</span>)	<span class="pl-c"><span class="pl-c">#</span> msgpack (serialize) object</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-store-py-LC12" class="blob-code blob-code-inner js-file-line">df.to_gbq(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> to a Google BigQuery table.</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-store-py-LC13" class="blob-code blob-code-inner js-file-line">df.to_string(<span class="pl-c1">...</span>)  <span class="pl-c"><span class="pl-c">#</span> console-friendly tabular output.</span></td>
+      </tr>
+      <tr>
+        <td id="file-store-py-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-store-py-LC14" class="blob-code blob-code-inner js-file-line">df.to_clipboard(<span class="pl-c1">...</span>) <span class="pl-c"><span class="pl-c">#</span> clipboard that can be pasted into Excel</span></td>
+      </tr>
+</tbody></table>
+
+
+  </div>
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/j-bennet/0e4128fa90874301dd9e4125c95e3f84/raw/b932c9df92bce4809ce0084e0a867c446d2990ff/store.py" style="float:right">view raw</a>
+        <a href="https://gist.github.com/j-bennet/0e4128fa90874301dd9e4125c95e3f84#file-store-py">store.py</a>
+        hosted with ❤ by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+<script>var height = -1; var delayMs = 200;function notifyResize(height)
+ {height = height ? height : document.documentElement.offsetHeight; var 
+resized = false; if (window.donkey && donkey.resize) 
+{donkey.resize(height); resized = true;}if (parent && 
+parent._resizeIframe) {var obj = {iframe: window.frameElement, height: 
+height}; parent._resizeIframe(obj); resized = true;}if (window.location 
+&& window.location.hash === "#amp=1" && window.parent && 
+window.parent.postMessage) {window.parent.postMessage({sentinel: "amp", 
+type: "embed-size", height: height}, "*");}if (window.webkit && 
+window.webkit.messageHandlers && window.webkit.messageHandlers.resize) 
+{window.webkit.messageHandlers.resize.postMessage(height); resized = 
+true;}return resized;}function maybeResize() {if 
+(document.documentElement.offsetHeight != height && notifyResize()) 
+{height = document.documentElement.offsetHeight;}delayMs = 
+Math.min(delayMs * 2, 1000000); setTimeout(maybeResize, 
+delayMs);}maybeResize();</script></body></html>
