@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>004-types-of-ml-problems</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748750, "assessment_type": "multiple-choice", "created": "2015-11-13T10:49:36Z", "prompt": {"question": "<p>Which of the below is NOT true about clustering and classification </p>", "answers": ["A) Both are concerned with classifying instances into disjoint groups\n", "B) Both are forms of supervised learning\n", "C) Clustering can be used as a precursor to classification\n ", "D) Clustering is concerned with classifying a large group of instances into categories and classification is concerned with classifying 1 instance"], "relatedLectureIds": ["3975536"], "feedbacks": ["", "Clustering is a form of unsupervised learning - it does not have a training stage", "Clustering can be used to identify disjoint groups in a dataset - this in turn can be used as training data for classifiying a new instance", ""]}, "correct_response": ["b"], "updated": "2015-11-13T10:49:52Z", "section": "", "question_plain": "Which of the below is NOT true about clustering and classification", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

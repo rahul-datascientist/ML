@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>026-tfidf</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748836, "assessment_type": "multiple-choice", "created": "2015-11-13T11:54:34Z", "prompt": {"answers": ["A) The importance of a word in a document is proportional to the frequency of its occurrence in the document and inversely proportional to the frequency of its occurrence in the corpus ", "B) The importance of a word in a document is inversely proportional to the frequency of its occurrence in the document  proportional to the frequency of its occurrence in the corpus ", "C) The importance of a word in a document is proportional to the frequency of its occurrence in the document and the frequency of its occurrence in the corpus \n", "D) The importance of a word in a document is inversely proportional to the frequency of its occurrence in the document and  the frequency of its occurrence in the corpus \n"], "question": "<p>What is the basic idea of TF - IDF?</p>", "relatedLectureIds": ["3990674"], "feedbacks": ["", "", "", ""]}, "correct_response": ["a"], "updated": "2015-11-13T11:54:34Z", "section": "", "question_plain": "What is the basic idea of TF - IDF?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

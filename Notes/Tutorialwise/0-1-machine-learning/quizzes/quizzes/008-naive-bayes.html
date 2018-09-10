@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>008-naive-bayes</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748764, "assessment_type": "multiple-choice", "created": "2015-11-13T11:06:40Z", "prompt": {"feedbacks": ["", "", "", ""], "answers": ["A) The Naive Bayes Classifier uses it to classify instances\n ", "B) It’s used during training to identify the probability distribution of a feature variable\n", "C) It’s used during training to classifiy the training data and assign labels\n", "D) All classifiers need to use it during training"], "relatedLectureIds": ["3975346"], "question": "<p> Which is true about the maximum likelihood technique?</p>"}, "correct_response": ["b"], "updated": "2015-11-13T11:06:40Z", "section": "", "question_plain": "Which is true about the maximum likelihood technique?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

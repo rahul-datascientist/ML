@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>020-artificial-neural-network</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748802, "assessment_type": "multiple-choice", "created": "2015-11-13T11:35:36Z", "prompt": {"answers": ["A) An algorithm that adjusts the model with each instance that comes in\n", "B) A machine learning algorithm used for handwriting analysis\n", "C) A machine learning algorithm used for computer vision\n", "D) Itâ€™s a form of unsupervised learning"], "relatedLectureIds": ["3975766"], "feedbacks": ["", "", "", ""], "question": "<p>What is online learning?</p>"}, "correct_response": ["a"], "updated": "2015-11-13T11:35:36Z", "section": "", "question_plain": "What is online learning?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

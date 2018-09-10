@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>018-pca</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748790, "assessment_type": "multiple-choice", "created": "2015-11-13T11:32:00Z", "prompt": {"answers": ["A) It can be used for feature selection\n", "B) It involves an orthogonal transformation\n", "C) It will order the existing features in their order of importance\n", "D) It will drop the existing features which are not orthogonal to other features"], "question": "<p>Which is true about Principal Components Analysis ?</p>", "feedbacks": ["", "", "", ""], "relatedLectureIds": ["3975190"]}, "correct_response": ["b"], "updated": "2015-11-13T11:32:00Z", "section": "", "question_plain": "Which is true about Principal Components Analysis ?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

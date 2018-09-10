@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>016-association-rule-learning</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 748786, "assessment_type": "multiple-choice", "created": "2015-11-13T11:27:55Z", "prompt": {"relatedLectureIds": ["3975624"], "answers": ["A) the algorithm scans the data looking to uncover interesting relationships between variables\n", "B) the algorithms makes decisions on how to classify a certain entity\n", "C) the algorithm tries to create distinct clusters of data   \n", "D) the algorithm tries to find a function that predicts the value of a variable"], "feedbacks": ["", "These are classification problems", "These are clustering problems ", "these are regression problems "], "question": "<p>What is the objective of association rule learning?</p>"}, "correct_response": ["a"], "updated": "2015-11-13T11:27:55Z", "section": "", "question_plain": "What is the objective of association rule learning?", "related_lectures": [], "original_assessment_id": 0}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>
