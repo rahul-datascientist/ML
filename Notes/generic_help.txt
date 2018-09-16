@@ -1,0 +1,14 @@
+--Embed image in notebook
+<img src="https://raw.githubusercontent.com/rahul-datascientist/ML/master/Notes/images/ML_drill_explain1.jpg">
+
+use urllib2 instaed of urllib2 
+
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+http = urllib3.PoolManager()
+response = http.request('GET', url)
+soup = BeautifulSoup(response.data,"lxml")
+
+--encode to convert str to bytes and decode to convert bytes to string
+
+text1.encode('ascii', 'replace').decode("utf-8").replace("?"," ")

@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html ⚡="" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/sdk.js" id="facebook-jssdk"></script><script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/ga.js" async="" type="text/javascript"></script><script async="" custom-element="amp-youtube" src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/amp-youtube-0.js"></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Web Scraping Reference: A Simple Cheat Sheet for Web Scraping with Python</title>
+  <meta name="description" content="Once you’ve put together enough web scrapers, you start to feel like you can do it in your sleep. I’ve probably built hundreds of scrapers over the years for...">
+
+  <meta property="fb:app_id" content="225565217845173">
+
+  <link rel="canonical" href="https://blog.hartleybrody.com/web-scraping-cheat-sheet/">
+  <link rel="alternate" type="application/rss+xml" title="Hartley Brody" href="https://blog.hartleybrody.com/feed.xml">
+  <link rel="icon" type="image/jpeg" href="https://www.gravatar.com/avatar/0b3ac738e74f7fbda25fca0f754b0aad?s=64">
+
+  <script type="application/ld+json">
+  
+{
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://blog.hartleybrody.com/web-scraping-cheat-sheet/",
+  "headline": "Web Scraping Reference: A Simple Cheat Sheet for Web Scraping with Python",
+  "datePublished": "2017-02-03T00:00:00-05:00",
+  "dateModified": "2017-02-03T00:00:00-05:00",
+  "description": "Once you’ve put together enough web scrapers, you start to feel like you can do it in your sleep. I’ve probably built hundreds of scrapers over the years for...",
+  "author": {
+    "@type": "Person",
+    "name": "Hartley Brody"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hartley Brody",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://blog.hartleybrody.com",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://blog.hartleybrody.com",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+
+  <link rel="stylesheet" href="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/styles.css">
+
+  <!-- Google Analytics-->
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-9472773-3']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_trackPageLoadTime']);
+
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+  <!--sumome-->
+  <script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/a" data-sumo-site-id="95a56d848849343e0f7ae71b38a33ba5a367a4f01ca9b464b31075f4bf35aaf0" async="async"></script>
+
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f5f6f7;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:-webkit-sticky;top:0}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style><script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/service_002.js" data-requiremodule="welcome-mat/service" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/service.js" data-requiremodule="156085c5-0017-4150-b225-a731ad248f38/service" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><script src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/services.js" data-requiremodule="services/services" data-requirecontext="_" async="" charset="utf-8" type="text/javascript"></script><style>@-moz-keyframes insQ_100 {  from {  outline: 1px solid transparent  } to {  outline: 0px solid transparent }  }
+#menufication-top { animation-duration: 0.001s; animation-name: insQ_100; -moz-animation-duration: 0.001s; -moz-animation-name: insQ_100;  } </style><link href="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/listbuilder-popup.css" rel="stylesheet" type="text/css"><link href="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/sumome-share-client.css" rel="stylesheet" type="text/css"><link href="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/sumome-welcome-popup.css" rel="stylesheet" type="text/css"></head>
+
+  <body>
+
+
+    <div class="container">
+        <div class="full-col">
+            <header>
+    <section>
+        <h1>
+            <a href="https://blog.hartleybrody.com/">
+                Hartley Brody
+            </a>
+        </h1>
+    </section>
+</header>
+
+        </div>
+
+        <div class="left-col">
+            <article itemscope="" itemtype="http://schema.org/BlogPosting" role="article">
+
+  <h2 itemprop="name">Web Scraping Reference: A Simple Cheat Sheet for Web Scraping with Python</h2>
+
+  <div class="post-meta">
+    
+      <time datetime="">February 18, 2017</time>
+    
+  </div>
+
+  <section>
+    <p>Once you’ve put together enough web scrapers, you start to feel 
+like you can do it in your sleep. I’ve probably built hundreds of 
+scrapers over the years for my own projects, as well as for clients and 
+students in <a href="https://scrapethissite.com/lessons/sign-up/">my web scraping course</a>.</p>
+
+<p>Occasionally though, I find myself referencing documentation or 
+re-reading old code looking for snippets I can reuse. One of the 
+students in my course suggested I put together a “cheat sheet” of 
+commonly used code snippets and patterns for easy reference.</p>
+
+<p>I decided to publish it publicly as well – as an organized set of easy-to-reference notes – in case they’re helpful to others.</p>
+
+<p><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/web-scraping-cheat-sheet.png" alt="Web Scraping Cheat Sheet Graphic" class="aligncenter"></p>
+
+<p>While it’s written primarily for people who are new to programming, I
+ also hope that it’ll be helpful to those who already have a background 
+in software or python, but who are looking to learn some web scraping 
+fundamentals and concepts.</p>
+
+<!--more-->
+<h3 id="table-of-contents">Table of Contents:</h3>
+<ol>
+  <li><a href="#useful-libraries">Useful Libraries</a></li>
+  <li><a href="#making-simple-requests">Making Simple Requests</a></li>
+  <li><a href="#inspecting-the-response">Inspecting the Response</a></li>
+  <li><a href="#extracting-content-from-html">Extracting Content from HTML</a>
+    <ol>
+      <li><a href="#using-regular-expressions">Using Regular Expressions</a></li>
+      <li><a href="#using-beautifulsoup">Using BeautifulSoup</a></li>
+      <li><a href="#using-xpath-selectors">Using XPath Selectors</a></li>
+    </ol>
+  </li>
+  <li><a href="#storing-your-data">Storing Your Data</a>
+    <ol>
+      <li><a href="#writing-to-a-csv">Writing to a CSV</a></li>
+      <li><a href="#writing-to-a-sqlite-database">Writing to a SQLite Database</a></li>
+    </ol>
+  </li>
+  <li><a href="#more-advanced-topics">More Advanced Topics</a>
+    <ol>
+      <li><a href="#javascript-heavy-websites">Javascript Heavy Websites</a></li>
+      <li><a href="#content-inside-iframes">Content Inside iFrames</a></li>
+      <li><a href="#sessions-and-cookies">Sessions and Cookies</a></li>
+      <li><a href="#delays-and-backing-off">Delays and Backing Off</a></li>
+      <li><a href="#spoofing-the-user-agent">Spoofing the User Agent</a></li>
+      <li><a href="#using-proxy-servers">Using Proxy Servers</a></li>
+      <li><a href="#setting-timeouts">Setting Timeouts</a></li>
+      <li><a href="#handling-network-errors">Handling Network Errors</a></li>
+    </ol>
+  </li>
+  <li><a href="#learn-more">Learn More</a></li>
+</ol>
+
+<h2 id="useful-libraries">Useful Libraries</h2>
+<p>For the most part, a scraping program deals with making HTTP requests and parsing HTML responses.</p>
+
+<p>I always make sure I have <a href="http://docs.python-requests.org/en/master/user/quickstart/" target="_blank"><code class="highlighter-rouge">requests</code></a> and <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/" target="_blank"><code class="highlighter-rouge">BeautifulSoup</code></a> installed before I begin a new scraping project. From the command line:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install requests
+pip install beautifulsoup4
+</code></pre>
+</div>
+
+<p>Then, at the top of your <code class="highlighter-rouge">.py</code> file, make sure you’ve imported these libraries correctly.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import requests
+from bs4 import BeautifulSoup
+</code></pre>
+</div>
+
+<h2 id="making-simple-requests">Making Simple Requests</h2>
+<p>Make a simple GET request (just fetching a page)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>r = requests.get("http://example.com/page")
+</code></pre>
+</div>
+
+<p>Make a POST requests (usually used when sending information to the server like submitting a form)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>r = requests.post("http://example.com/page", data=dict(
+    email="me@domain.com",
+    password="secret_value"
+))
+</code></pre>
+</div>
+
+<p>Pass query arguments aka URL parameters (usually used when making a search query or paging through results)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>r = requests.get("http://example.com/page", params=dict(
+    query="web scraping",
+    page=2
+))
+</code></pre>
+</div>
+
+<h2 id="inspecting-the-response">Inspecting the Response</h2>
+<p>See what response code the server sent back (useful for detecting 4XX or 5XX errors)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print r.status_code
+</code></pre>
+</div>
+
+<p>Access the full response as text (get the HTML of the page in a big string)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print r.text
+</code></pre>
+</div>
+
+<p>Look for a specific substring of text within the response</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>if "blocked" in r.text:
+    print "we've been blocked"
+</code></pre>
+</div>
+
+<p>Check the response’s Content Type (see if you got back HTML, JSON, XML, etc)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print r.headers.get("content-type", "unknown")
+</code></pre>
+</div>
+
+<h2 id="extracting-content-from-html">Extracting Content from HTML</h2>
+<p>Now that you’ve made your HTTP request and gotten some HTML content, 
+it’s time to parse it so that you can extract the values you’re looking 
+for.</p>
+
+<h3 id="using-regular-expressions">Using Regular Expressions</h3>
+<p>Using Regular Expressions to look for HTML patterns is <a href="http://stackoverflow.com/a/1732454/625840" target="_blank">famously NOT recommended at all</a>.</p>
+
+<p>However, regular expressions are still useful for finding specific 
+string patterns like prices, email addresses or phone numbers.</p>
+
+<p>Run a regular expression on the response text to look for specific string patterns:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import re  # put this at the top of the file
+...
+re.findall(r'\$[0-9,.]+', r.text)
+</code></pre>
+</div>
+
+<h3 id="using-beautifulsoup">Using BeautifulSoup</h3>
+<p>BeautifulSoup is widely used due to its simple API and its powerful 
+extraction capabilities. It has many different parser options that allow
+ it to understand even the most poorly written HTML pages – and the 
+default one works great.</p>
+
+<p>Compared to libraries that offer similar functionality, it’s a 
+pleasure to use. To get started, you’ll have to turn the HTML text that 
+you got in the response into a nested, DOM-like structure that you can 
+traverse and search</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>soup = BeautifulSoup(r.text, "html.parser")
+</code></pre>
+</div>
+
+<p>Look for all anchor tags on the page (useful if you’re building a crawler and need to find the next pages to visit)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>links = soup.find_all("a")
+</code></pre>
+</div>
+
+<p>Look for all tags with a specific class attribute (eg <code class="highlighter-rouge">&lt;li class="search-result"&gt;...&lt;/li&gt;</code>)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tags = soup.find_all("li", "search-result")
+</code></pre>
+</div>
+
+<p>Look for the tag with a specific ID attribute (eg: <code class="highlighter-rouge">&lt;div id="bar"&gt;...&lt;/div&gt;</code>)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tag = soup.find("div", id="bar")
+</code></pre>
+</div>
+
+<p>Look for nested patterns of tags (useful for finding generic elements, but only within a specific section of the page)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tags = soup.find("div", id="search-results").find_all("a", "external-links")
+</code></pre>
+</div>
+
+<p>Look for all tags matching CSS selectors (similar query to the last one, but might be easier to write for someone who knows CSS)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tags = soup.select("#search-results .external-links")
+</code></pre>
+</div>
+
+<p>Get a list of strings representing the inner contents of a tag (this 
+includes both the text nodes as well as the text representation of any 
+other nested HTML tags within)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>inner_contents = soup.find("div", id="price").contents
+</code></pre>
+</div>
+
+<p>Return only the text contents within this tag, but ignore the text 
+representation of other HTML tags (useful for stripping our pesky <code class="highlighter-rouge">&lt;span&gt;</code>, <code class="highlighter-rouge">&lt;strong&gt;</code>, <code class="highlighter-rouge">&lt;i&gt;</code>, or other inline tags that might show up sometimes)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>inner_text = soup.find("div", id="price").text.strip()
+</code></pre>
+</div>
+
+<p>Convert the text that are extracting from unicode to ascii if you’re 
+having issues printing it to the console or writing it to files</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>inner_text = soup.find("div", id="price").text.strip().encode("utf-8")
+</code></pre>
+</div>
+
+<p>Get the attribute of a tag (useful for grabbing the <code class="highlighter-rouge">src</code> attribute of an <code class="highlighter-rouge">&lt;img&gt;</code> tag or the <code class="highlighter-rouge">href</code> attribute of an <code class="highlighter-rouge">&lt;a&gt;</code> tag)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>anchor_href = soup.find("a")["href"]
+</code></pre>
+</div>
+
+<p>Putting several of these concepts together, here’s a common idiom: 
+iterating over a bunch of container tags and pull out content from each 
+of them</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>for product in soup.find_all("div", "products"):
+    product_title = product.find("h3").text
+    product_price = product.find("span", "price").text
+    product_url = product.find("a")["href"]
+    print "{} is selling for {} at {}".format(product_title, product_price, product_url)
+</code></pre>
+</div>
+
+<h3 id="using-xpath-selectors">Using XPath Selectors</h3>
+<p>BeautifulSoup doesn’t currently support XPath selectors, and I’ve 
+found them to be really terse and more of a pain than they’re worth. I 
+haven’t found a pattern I couldn’t parse using the above methods.</p>
+
+<p>If you’re really dedicated to using them for some reason, <a href="http://stackoverflow.com/a/11466033/625840" target="_blank">you can use the lxml library instead of BeautifulSoup, as described here.</a></p>
+
+<h2 id="storing-your-data">Storing Your Data</h2>
+<p>Now that you’ve extracted your data from the page, it’s time to save it somewhere.</p>
+
+<p>Note: The implication in these examples is that the scraper went out 
+and collected all of the items, and then waited until the very end to 
+iterate over all of them and write them to a spreadsheet or database.</p>
+
+<p>I did this to simplify the code examples. In practice, you’d want to 
+store the values you extract from each page as you go, so that you don’t
+ lose all of your progress if you hit an exception towards the end of 
+your scrape and have to go back and re-scrape every page.</p>
+
+<h3 id="writing-to-a-csv">Writing to a CSV</h3>
+<p>Probably the most basic thing you can do is write your extracted 
+items to a CSV file. By default, each row that is passed to the <code class="highlighter-rouge">csv.writer</code> object to be written has to be a python <code class="highlighter-rouge">list</code>.</p>
+
+<p>In order for the spreadsheet to make sense and have consistent 
+columns, you need to make sure all of the items that you’ve extracted 
+have their properties in the same order. This isn’t usually a problem if
+ the lists are created consistently.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import csv
+...
+with open("~/Desktop/output.csv", "w") as f:
+    writer = csv.writer(f)
+
+    # collected_items = [
+    #   ["Product #1", "$10", "http://example.com/product-1"],
+    #   ["Product #2", "$25", "http://example.com/product-2"],
+    #   ...
+    # ]
+
+    for item_property_list in collected_items:
+        writer.writerow(item_property_list)
+</code></pre>
+</div>
+
+<p>If you’re extracting lots of properties about each item, sometimes it’s more useful to store the item as a python <code class="highlighter-rouge">dict</code> instead of having to remember the order of columns within a row. The <code class="highlighter-rouge">csv</code> module has a handy <code class="highlighter-rouge">DictWriter</code> that keeps track of which column is for writing which dict key.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import csv
+...
+field_names = ["Product Name", "Price", "Detail URL"]
+with open("~/Desktop/output.csv", "w") as f:
+    writer = csv.DictWriter(f, field_names)
+
+    # collected_items = [
+    #   {
+    #       "Product Name": "Product #1",
+    #       "Price": "$10",
+    #       "Detail URL": "http://example.com/product-1"
+    #   },
+    #   ...
+    # ]
+
+    # Write a header row
+    writer.writerow({x: x for x in field_names})
+
+    for item_property_dict in collected_items:
+        writer.writerow(item_property_dict)
+</code></pre>
+</div>
+
+<h3 id="writing-to-a-sqlite-database">Writing to a SQLite Database</h3>
+<p>You can also use a simple SQL insert if you’d prefer to store your data in a database for later querying and retrieval.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import sqlite3
+
+conn = sqlite3.connect("/tmp/output.sqlite")
+cur = conn.cursor()
+...
+for item in collected_items:
+    cur.execute("INSERT INTO scraped_data (title, price, url) values (?, ?, ?)",
+        (item["title"], item["price"], item["url"])
+    )
+</code></pre>
+</div>
+
+<h2 id="more-advanced-topics">More Advanced Topics</h2>
+<p>These aren’t really things you’ll need if you’re building a simple, 
+small scale scraper for 90% of websites. But they’re useful tricks to 
+keep up your sleeve.</p>
+
+<h3 id="javascript-heavy-websites">Javascript Heavy Websites</h3>
+<p>Contrary to popular belief, you do not need any special tools to 
+scrape websites that load their content via Javascript. In order for the
+ information to get from their server and show up on a page in your 
+browser, that information <em>had</em> to have been returned in an HTTP response <em>somewhere</em>.</p>
+
+<p>It usually means that you won’t be making an HTTP request to the 
+page’s URL that you see at the top of your browser window, but instead 
+you’ll need to find the URL of the AJAX request that’s going on in the 
+background to fetch the data from the server and load it into the page.</p>
+
+<p>There’s not really an easy code snippet I can show here, but if you 
+open the Chrome or Firefox Developer Tools, you can load the page, go to
+ the “Network” tab and then look through the all of the requests that 
+are being sent in the background to find the one that’s returning the 
+data you’re looking for. Start by filtering the requests to only <code class="highlighter-rouge">XHR</code> or <code class="highlighter-rouge">JS</code> to make this easier.</p>
+
+<p>Once you find the AJAX request that returns the data you’re hoping to
+ scrape, then you can make your scraper send requests to this URL, 
+instead of to the parent page’s URL. If you’re lucky, the response will 
+be encoded with <code class="highlighter-rouge">JSON</code> which is even easier to parse than HTML.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>print r.json()  # returns a python dict, no need for BeautifulSoup
+</code></pre>
+</div>
+
+<h3 id="content-inside-iframes">Content Inside Iframes</h3>
+<p>This is another topic that causes a lot of hand wringing for no 
+reason. Sometimes the page you’re trying to scrape doesn’t actually 
+contain the data in its HTML, but instead it loads the data inside an 
+iframe.</p>
+
+<p>Again, it’s just a matter of making the request to the right URL to 
+get the data back that you want. Make a request to the outer page, find 
+the iframe, and then make another HTTP request to the iframe’s <code class="highlighter-rouge">src</code> attribute.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>inner_content = requests.get(soup.find("iframe")["src"])
+</code></pre>
+</div>
+
+<h3 id="sessions-and-cookies">Sessions and Cookies</h3>
+<p>While HTTP is stateless, sometimes you want to use cookies to 
+identify yourself consistently across requests to the site you’re 
+scraping.</p>
+
+<p>The most common example of this is needing to login to a site in 
+order to access protected pages. Without the correct cookies sent, a 
+request to the URL will likely be redirected to a login form or 
+presented with an error response.</p>
+
+<p>However, once you successfully login, a session cookie is set that 
+identifies who you are to the website. As long as future requests send 
+this cookie along, the site knows who you are and what you have access 
+to.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># create a session
+session = requests.Session()
+
+# make a login POST request, using the session
+session.post("http://example.com/login", data=dict(
+    email="me@domain.com",
+    password="secret_value"
+))
+
+# subsequent requests that use the session will automatically handle cookies
+r = session.get("http://example.com/protected_page")
+</code></pre>
+</div>
+
+<h3 id="delays-and-backing-off">Delays and Backing Off</h3>
+<p>If you want to be polite and not overwhelm the target site you’re 
+scraping, you can introduce an intentional delay or lag in your scraper 
+to slow it down</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import time
+
+for term in ["web scraping", "web crawling", "scrape this site"]:
+    r = requests.get("http://example.com/search", params=dict(
+        query=term
+    ))
+    time.sleep(5)  # wait 5 seconds before we make the next request
+</code></pre>
+</div>
+
+<p>Some also recommend adding a backoff that’s proportional to how long 
+the site took to respond to your request. That way if the site gets 
+overwhelmed and starts to slow down, your code will automatically back 
+off.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>import time
+
+for term in ["web scraping", "web crawling", "scrape this site"]:
+    t0 = time.time()
+    r = requests.get("http://example.com/search", params=dict(
+        query=term
+    ))
+    response_delay = time.time() - t0
+    time.sleep(10*response_delay)  # wait 10x longer than it took them to respond
+</code></pre>
+</div>
+
+<h3 id="spoofing-the-user-agent">Spoofing the User Agent</h3>
+<p>By default, the <code class="highlighter-rouge">requests</code> library sets the <code class="highlighter-rouge">User-Agent</code>
+ header on each request to something like “python-requests/2.12.4”. You 
+might want to change it to identify your web scraper, perhaps providing a
+ contact email address so that an admin from the target website can 
+reach out if they see you in their logs.</p>
+
+<p>More commonly, this is used to make it appear that the request is 
+coming from a normal web browser, and not a web scraping program.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>headers = {
+    "User-Agent": "my web scraping program. contact me at admin@domain.com"
+}
+r = requests.get("http://example.com", headers=headers)
+</code></pre>
+</div>
+
+<h3 id="using-proxy-servers">Using Proxy Servers</h3>
+<p>Even if you spoof your User Agent, the site you are scraping can 
+still see your IP address, since they have to know where to send the 
+response.</p>
+
+<p>If you’d like to obfuscate where the request is coming from, you can 
+use a proxy server in between you and the target site. The scraped site 
+will see the request coming from that server instead of your actual 
+scraping machine.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>r = requests.get("http://example.com/", proxies=dict(
+    http="http://proxy_user:proxy_pass@104.255.255.255:port",
+))
+</code></pre>
+</div>
+
+<p>If you’d like to make your requests appear to be spread out across 
+many IP addresses, then you’ll need access to many different proxy 
+servers. You can keep track of them in a <code class="highlighter-rouge">list</code>
+ and then have your scraping program simply go down the list, picking 
+off the next one for each new request, so that the proxy servers get 
+even rotation.</p>
+
+<h3 id="setting-timeouts">Setting Timeouts</h3>
+<p>If you’re experiencing slow connections and would prefer that your 
+scraper moved on to something else, you can specify a timeout on your 
+requests.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>try:
+    requests.get("http://example.com", timeout=10)  # wait up to 10 seconds
+except requests.exceptions.Timeout:
+    pass  # handle the timeout
+</code></pre>
+</div>
+
+<h3 id="handling-network-errors">Handling Network Errors</h3>
+<p>Just as you should never trust user input in web applications, you 
+shouldn’t trust the network to behave well on large web scraping 
+projects. Eventually you’ll hit closed connections, SSL errors or other 
+intermittent failures.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>try:
+    requests.get("http://example.com")
+except requests.exceptions.RequestException:
+    pass  # handle the exception. maybe wait and try again later
+</code></pre>
+</div>
+
+<!-- using threads for multiple requests at once -->
+
+<h2 id="learn-more">Learn More</h2>
+<p>If you’d like to <strong>learn more about web scraping</strong>, I currently have an <a href="https://blog.hartleybrody.com/guide-to-web-scraping/" target="_blank">ebook ($15)</a> and <a href="https://scrapethissite.com/lessons/sign-up/">online course ($297)</a> that I offer, as well as a <a href="https://scrapethissite.com/">free sandbox website</a> that’s designed to be easy for beginners to scrape.</p>
+
+<p>You can also <a href="https://blog.hartleybrody.com/subscribe/">subscribe to my blog</a> to get emailed when I release new articles.</p>
+
+<style type="text/css">
+    code {
+        font-size: 14px;
+    }
+
+</style>
+
+
+  </section>
+
+  <div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/kO5a7GzG6AF.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" allow="encrypted-media" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=225565217845173";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
+  <div fb-xfbml-state="rendered" class="fb-comments fb_iframe_widget" data-href="https://blog.hartleybrody.com/web-scraping-cheat-sheet/" data-width="750" data-numposts="5"><span style="height: 496px; width: 750px;"><iframe src="https://www.facebook.com/plugins/comments.php?api_key=225565217845173&amp;channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FkO5a7GzG6AF.js%3Fversion%3D42%23cb%3Df3056642f4528b4%26domain%3Dblog.hartleybrody.com%26origin%3Dhttps%253A%252F%252Fblog.hartleybrody.com%252Ff2931c4f6e2b2%26relation%3Dparent.parent&amp;href=https%3A%2F%2Fblog.hartleybrody.com%2Fweb-scraping-cheat-sheet%2F&amp;locale=en_US&amp;numposts=5&amp;sdk=joey&amp;version=v2.8&amp;width=750" class="fb_ltr" title="Facebook Social Plugin" style="border: medium none; overflow: hidden; height: 496px; width: 750px;" scrolling="no" name="f45a60e593072" id="f2a45bd3d3241f2"></iframe></span></div>
+
+</article>
+
+        </div>
+        <div class="right-col">
+            <div id="sidebar">
+    <div class="sidebar-item" id="bio">
+        <a href="https://www.hartleybrody.com/boston-full-stack-web-consultant.html">
+            <img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/0b3ac738e74f7fbda25fca0f754b0aad.jpg" id="bioimg">
+        </a>
+        <p>I'm a full-stack web developer and tech lead with 6 years of experience across many modern tech stacks.</p>
+        <p>I'm always looking to talk to new clients and contribute to cool projects. <a href="https://blog.hartleybrody.com/contact-me/">Contact me</a> or <a href="https://blog.hartleybrody.com/projects/">check out my side projects</a>.
+        </p>
+    </div>
+
+
+    <div class="non-amp">
+    <div class="sidebar-item" id="subscribe">
+        <h3>Get Email Updates</h3>
+        <p>One or two emails a month about the latest technology I'm hacking on.</p>
+        <form action="https://tinyletter.com/hb-tech" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/hb-tech', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <input name="email" placeholder="email address..." id="subscribe-email" type="email">
+        <input value="1" name="embed" type="hidden">
+        <input value="Join »" name="subscribe" id="subscribe-button" type="submit">
+        </form>
+    </div>
+    </div>
+
+
+    <div class="sidebar-item" id="scraping-book">
+        <a href="https://blog.hartleybrody.com/guide-to-web-scraping/">
+            <img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/web-scraping-ebook.png">
+        </a>
+    </div>
+
+    <div class="sidebar-item" id="popular">
+        <h3>Popular Articles</h3>
+        <ul>
+            <li><a href="https://blog.hartleybrody.com/web-scraping/">I Don’t Need No Stinking API: Web Scraping For Fun and Profit</a></li>
+            <li><a href="https://blog.hartleybrody.com/fb-messenger-bot/">Facebook Messenger Bot Tutorial: Step-by-Step Instructions for Building a Basic Facebook Chat Bot</a></li>
+            <li><a href="https://blog.hartleybrody.com/web-scraping-cheat-sheet/">Web Scraping Reference: A Simple Cheat Sheet for Web Scraping with Python</a></li>
+            <li><a href="https://blog.hartleybrody.com/startup-security/">Startup Security Guide: Minimum Viable Security Checklist for a Cloud-Based Web Application</a></li>
+            <li><a href="https://blog.hartleybrody.com/scrape-amazon/">How to Scrape Amazon.com: 19 Lessons I Learned While Crawling 1MM+ Product Listings</a></li>
+
+            <li><a href="https://blog.hartleybrody.com/scale-load/">Scaling Your Web App 101: Lessons in Architecture Under Load</a></li>
+            <li><a href="https://blog.hartleybrody.com/https-certificates/">How HTTPS Secures Connections: What Every Web Dev Should Know</a></li>
+            <li><a href="https://blog.hartleybrody.com/databases-intro/">Peeling Back the ORM: Demystifying Relational Databases For New Web Developers</a></li>
+            <li><a href="https://blog.hartleybrody.com/python-serialize/">Lightning Fast Data Serialization in Python</a></li>
+            <li><a href="https://blog.hartleybrody.com/git-small-teams/">Minimum Viable Git Best Practices for Small Teams</a></li>
+
+            <li><a href="https://blog.hartleybrody.com/wont-sign-nda/">7 Reasons I Won't Sign Your NDA Before a Coffee Meeting</a></li>
+            <li><a href="https://blog.hartleybrody.com/building-products/">Focus on the Product, Not the Code: How I Build Software for Clients</a></li>
+            <li><a href="https://blog.hartleybrody.com/learning-to-code/">How I Learned to Code in Only 6 Years: And You Can Too!</a></li>
+
+
+        </ul>
+    </div>
+
+    <div class="sidebar-item" id="links">
+        <h3>More Info</h3>
+        <ul>
+            <li><a href="https://blog.hartleybrody.com/contact-me/">Contact Me</a></li>
+            <li><a href="https://blog.hartleybrody.com/press/">Press Mentions</a></li>
+            <li><a href="https://blog.hartleybrody.com/projects/">Recent Projects</a></li>
+            <li><a href="https://blog.hartleybrody.com/subscribe/">Subscribe To My Blog</a></li>
+        </ul>
+    </div>
+
+
+
+</div><!--#sidebar-->
+
+        </div>
+
+        <div class="full-col">
+            <footer class="site-footer">
+   <section class="copyright">All content © 2018 •  <a href="https://blog.hartleybrody.com/contact-me/">Hartley Brody</a> </section>
+</footer>
+
+        </div>
+    </div>
+
+  
+
+<iframe title="Sumo Hidden Content" id="sumome-jquery-iframe" style="display: none;"></iframe><a href="javascript:void(0);" title="Sumo" style="background-color: rgb(0, 115, 183); border-radius: 3px 0px 0px 3px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); position: fixed; display: block ! important; z-index: 2147483647; padding: 0px; width: 44px; height: 40px; text-indent: -10000px; opacity: 1; top: 40px; right: -40px;"><span style="position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; border-radius: 3px 0px 0px 3px; margin-left: 4px; margin-right: 0px;">Sumo</span><span style="display: block; width: 40px; height: 40px; background: white url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDQ3MUVFMDFFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDQ3MUVFMDBFMjVDMTFFNjlFQjhBRjdGODU5MDJBMDUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxZDQ2MjI4YS03NWY2LTRkZTQtOGJjYy1hODc1NjRkMjYxYTUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MWQ0NjIyOGEtNzVmNi00ZGU0LThiY2MtYTg3NTY0ZDI2MWE1Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+8JtvywAAAKhQTFRFzOPxSJvLA3W4Mo7FBna5w97u8vj7EHy8a67VhbzdsdTpVaLPh73d9/v9C3m6QZfJbq/WXKbR3u32JIfB3ez1KorDir/eBHW4+/3+rtPoZarUG4K/LIvDDnu7ocvkf7nbdrTY9fr8E328WKPQO5PITJ3MPpXJstXptdbq+Pv9cbHXaq3VU6HOkMLgnMnjDHq62uv1/P3+6/T53Oz1cLDX/f7+AHO3////ptOZ5QAAADh0Uk5T/////////////////////////////////////////////////////////////////////////wA7XBHKAAAAmUlEQVR42sSRRxLCMAxFRSq9907ovebr/jdDMWYGxmZL3sIqbyFbJv4B/VlkVlerKALTD3G46Mx3AOR1UZ/TsDxW6W0gfYRNVfTCFu2AWpAMgMItMW+zQJU2UjWI29D0+e5KWNPMk+A9Om+B/UgOJyCuwMJCrpuziYkIsglfRByZ/XM3eXnBFEu1kpMpjq9dxQYp/OAXTwEGAB7Rc1xVnPemAAAAAElFTkSuQmCC&quot;) no-repeat scroll 8px 8px; margin-left: 4px; border-radius: 3px 0px 0px 3px; margin-right: 0px;"></span></a><iframe style="display: none;"></iframe><div style="position:fixed;top:0;left:0;overflow:hidden;"><label for="focus_retriever" style="position:absolute;left:-1000px;">Focus Retriever</label><input style="position:absolute;left:-1000px;" name="focus_retriever" id="focus_retriever" readonly="true" type="text"></div><div style="top: 176.5px;" class="sumome-share-client-wrapper sumome-share-client-wrapper-left-page sumome-share-client-counts sumome-share-client-light sumome-share-client-medium"><div class="sumome-share-client-show"><span></span></div><div data-sumome-share-pos="lp" class="sumome-share-client sumome-share-client-left-page sumome-share-client-counts sumome-share-client-light sumome-share-client-medium"><div style="background: rgb(255, 255, 255) none repeat scroll 0% 0%; color: black;" class="sumome-share-client-animated sumome-share-client-share sumome-share-client-share-share sumome-share-client-count" data-sumome-share="share"><span style="bottom: auto; top: 11.5px;"><strong>25</strong><br>Shares</span></div><a style="background: rgb(36, 36, 36) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" title="Buffer" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="buffer" href="javascript:void(0);"><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/buffer-white-60.png" alt="Buffer"></a><a style="background: rgb(0, 172, 237) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" title="Twitter" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="twitter" href="javascript:void(0);"><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/twitter-white-60.png" alt="Twitter"></a><a style="background: rgb(221, 75, 57) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" title="Google+" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="googleplus" href="javascript:void(0);"><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/googleplus-white-60.png" alt="Google+"></a><a style="background: rgb(0, 123, 182) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" title="LinkedIn" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="linkedin" href="javascript:void(0);"><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/linkedin-white-60.png" alt="LinkedIn"></a><a style="background: rgb(170, 170, 170) none repeat scroll 0% 0%; color: rgb(255, 255, 255);" title="Email" class="sumome-share-client-animated sumome-share-client-share" data-sumome-share="email" href="javascript:void(0);"><img src="Web%20Scraping%20Reference%20%20A%20Simple%20Cheat%20Sheet%20for%20Web%20Scraping%20with%20Python_files/email-white-60.png" alt="Email"></a></div><div class="sumome-share-client-hide"><span></span></div></div></body></html>
